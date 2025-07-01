@@ -4,8 +4,8 @@ export const addStudent = async (req, res) => {
   const { name, email, course, age } = req.body;
 
   try {
-    const student = Student.findOne({ email });
-    if (student.length <= 0)
+    const student = await Student.findOne({ email });
+    if (student)
       return res.status(400).json({
         message:
           "Student with this gmail is already added please use another gmail",
