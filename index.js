@@ -23,10 +23,15 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+server.use(
+  cors({
+    origin: "https://student-management-system-frontend-omega.vercel.app", // ✅ Your Vercel frontend URL
+    credentials: true, // Optional: only if you use cookies/auth headers
+  })
+);
 server.use(morgan("dev"));
 server.use(express.json());
-server.use(cors());
+
 server.use(
   fileUpload({
     limits: { fileSize: 5 * 1024 * 1024 },
