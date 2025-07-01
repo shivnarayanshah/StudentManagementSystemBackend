@@ -23,12 +23,13 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-server.use(
-  cors({
-    origin: "https://student-management-system-frontend-omega.vercel.app", // ✅ Your Vercel frontend URL
-    credentials: true, // Optional: only if you use cookies/auth headers
-  })
-);
+// server.use(
+//   cors({
+//     origin: "https://student-management-system-frontend-omega.vercel.app", // ✅ Your Vercel frontend URL
+//     credentials: true, // Optional: only if you use cookies/auth headers
+//   })
+// );
+server.use(cors());
 server.use(morgan("dev"));
 server.use(express.json());
 
